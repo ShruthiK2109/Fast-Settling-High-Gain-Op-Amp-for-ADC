@@ -1,0 +1,1 @@
+# Fast-Settling-High-Gain-Op-Amp-for-ADC
