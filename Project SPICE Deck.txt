@@ -1,0 +1,52 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  EE4340
+* Top Cell Name: telescopic
+* View Name:     schematic
+* Netlisted on:  Dec  9 16:25:43 2022
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.RESVAL
+*.CAPVAL
+*.DIOPERI
+*.DIOAREA
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL gnd!
+
+*.PIN gnd!
+
+************************************************************************
+* Library Name: EE4340
+* Cell Name:    telescopic
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT telescopic VDD Vn Vout Vp gnd
+*.PININFO Vn:I Vp:I Vout:O VDD:B gnd:B
+MM16 Vb Vb VDD VDD PM W=500.0n L=350n
+MM9 Vout Vb VDD VDD PM W=10u L=350n
+MM4 Vo net7 net14 net14 PM W=5u L=350n
+MM3 net14 net8 VDD VDD PM W=5u L=350n
+MM2 net7 net7 net8 net8 PM W=5u L=350n
+MM1 net8 net8 VDD VDD PM W=5u L=350n
+MM15 Vb net21 gnd gnd NM W=500.0n L=350n
+MM14 net22 net21 gnd gnd NM W=10u L=350n
+MM13 net21 net20 net22 net22 NM W=10u L=350n
+MM12 net9 net21 gnd gnd NM W=1u L=350n
+MM11 net10 net20 net9 net9 NM W=1u L=350n
+MM10 Vout Vo gnd! gnd! NM W=1u L=350n
+MM8 net12 Vp net10 net10 NM W=1u L=350n
+MM7 Vo Vb net12 net12 NM W=1u L=350n
+MM6 net3 Vn net10 net10 NM W=1u L=350n
+MM5 net7 Vb net3 net3 NM W=1u L=350n
+RR0 net20 net21 4K $[RP]
+RR1 net034 Vo 50K $[RP]
+CC0 net034 Vout 100f $[CP]
+.ENDS
